@@ -1,0 +1,12 @@
+@import "addons.scss";
+@import "dbsl_proposalgen_theme.scss";
+
+/* This file prefixes all rules with the theme name to avoid causing conflicts with other themes. */
+/* The actual styles should be defined in dbsl_proposalgen_theme.scss */
+.dbsl_proposalgen_theme {
+  @include addons;
+  @include dbsl_proposalgen_theme;
+}
+  .leftMenu {
+background: #990000;
+}
