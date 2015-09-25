@@ -1,4 +1,4 @@
-package com.dbsl.proposalgenerator;
+package com.dbsl.proposalgenerator.user.gui;
 
 import javax.servlet.annotation.WebServlet;
 
