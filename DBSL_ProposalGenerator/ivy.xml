@@ -49,6 +49,12 @@
    name="vaadin-icons" 
    rev="1.0.1" />
    
+   <dependency 
+   org="org.vaadin.addons" 
+   name="fontawesomelabel" 
+   rev="1.2.0" />
+   
+   
 <dependency 
    org="org.vaadin.addons" 
    name="vaadin-sliderpanel" 
