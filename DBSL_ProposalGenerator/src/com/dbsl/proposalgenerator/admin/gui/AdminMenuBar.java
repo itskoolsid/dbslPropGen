@@ -12,13 +12,21 @@ public class AdminMenuBar extends MenuBar {
 
     public AdminMenuBar() {
         super();
-        manageEmployees = addItem("Manage Employees", FontAwesome.USERS, null);
-        manageProposals = addItem("Manage Proposals", FontAwesome.FILE_TEXT, command);
-        manageClients = addItem("Manage Clients", FontAwesome.BRIEFCASE, command);
+        manageEmployees = addItem("Employees", FontAwesome.USERS, null);
+        manageProposals = addItem("Proposal Templates", FontAwesome.FILE_TEXT, null);
+        manageClients = addItem("Clients", FontAwesome.BRIEFCASE, null);
 
-        manageEmployees.addItem("Edit", FontAwesome.EDIT, command);
-        manageEmployees.addItem("Edit", VaadinIcons.CLOSE, command);
-        manageEmployees.addItem("Edit", FontAwesome.EDIT, command);
+        manageEmployees.addItem("Add New", VaadinIcons.PLUS, command);
+        manageEmployees.addItem("Edit", VaadinIcons.EDIT, command);
+        manageEmployees.addItem("Delete", VaadinIcons.CLOSE, command);
+
+        manageProposals.addItem("Create New", VaadinIcons.PLUS_CIRCLE, command);
+        manageProposals.addItem("Edit", VaadinIcons.EDIT, command);
+        manageProposals.addItem("Delete", VaadinIcons.CLOSE_CIRCLE, command);
+
+        manageClients.addItem("Add New", VaadinIcons.PLUS, command);
+        manageClients.addItem("Edit", VaadinIcons.EDIT, command);
+        manageClients.addItem("Delete", VaadinIcons.CLOSE, command);
     }
 
     MenuBar.Command command = new MenuBar.Command() {
