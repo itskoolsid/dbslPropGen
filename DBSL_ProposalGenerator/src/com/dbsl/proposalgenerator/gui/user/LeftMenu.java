@@ -1,4 +1,4 @@
-package com.dbsl.proposalgenerator.user.gui;
+package com.dbsl.proposalgenerator.gui.user;
 
 import org.vaadin.teemu.VaadinIcons;
 

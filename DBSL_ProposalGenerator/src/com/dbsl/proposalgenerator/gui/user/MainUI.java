@@ -1,8 +1,8 @@
-package com.dbsl.proposalgenerator.user.gui;
+package com.dbsl.proposalgenerator.gui.user;
 
 import javax.servlet.annotation.WebServlet;
 
-import com.dbsl.proposalgenerator.admin.gui.AdminMenuBar;
+import com.dbsl.proposalgenerator.gui.admin.AdminMenuBar;
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;

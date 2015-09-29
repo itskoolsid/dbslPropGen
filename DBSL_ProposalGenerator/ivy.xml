@@ -61,6 +61,8 @@
    rev="1.2.1" />
    
    <dependency org="com.itextpdf" name="itextpdf" rev="5.0.6"/>
+   <dependency org="org.eclipse.persistence" name="javax.persistence" rev="2.0.0"/>
+			<dependency org="org.eclipse.persistence" name="eclipselink" rev="2.5.0"/>
    
 	</dependencies>
 </ivy-module>

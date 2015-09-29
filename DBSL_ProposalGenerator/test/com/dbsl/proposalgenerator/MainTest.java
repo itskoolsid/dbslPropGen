@@ -1,19 +1,9 @@
 package com.dbsl.proposalgenerator;
 
-import com.vaadin.testbench.ScreenshotOnFailureRule;
-import com.vaadin.testbench.TestBenchTestCase;
-import com.vaadin.testbench.elements.ButtonElement;
-import com.vaadin.testbench.elements.LabelElement;
-
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.openqa.selenium.firefox.FirefoxDriver;
-
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import com.google.gwt.dom.client.ButtonElement;
+import com.google.gwt.dom.client.LabelElement;
 
 /**
  * This class contains JUnit tests, which are run using Vaadin TestBench 4.
@@ -24,8 +14,8 @@ import static org.junit.Assert.assertFalse;
  *
  * Once the license is installed, you can run this class as a JUnit test.
  */
-public class MainTest extends TestBenchTestCase {
-    @Rule
+public class MainTest  {
+   /* @Rule
     public ScreenshotOnFailureRule screenshotOnFailureRule =
             new ScreenshotOnFailureRule(this, true);
 
@@ -49,9 +39,9 @@ public class MainTest extends TestBenchTestCase {
         //   setDriver(new PhantomJSDriver()); // PhantomJS headless browser
     }
 
-    /**
+    *//**
      * Opens the URL where the application is deployed.
-     */
+     *//*
     private void openTestUrl() {
         getDriver().get("http://localhost:8080/DBSL_ProposalGenerator");
     }
@@ -83,5 +73,5 @@ public class MainTest extends TestBenchTestCase {
         // ... and the last label should have the correct text
         LabelElement lastLabel = allLabels.get(1);
         assertEquals("Thank you for clicking", lastLabel.getText());
-    }
+    }*/
 }
