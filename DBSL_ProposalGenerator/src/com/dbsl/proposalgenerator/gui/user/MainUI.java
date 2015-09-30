@@ -43,7 +43,7 @@ public class MainUI extends UI {
     }
 
     private Component addMenu() {
-        return new AdminMenuBar();
+        return new AdminMenuBar(this);
     }
 
 }

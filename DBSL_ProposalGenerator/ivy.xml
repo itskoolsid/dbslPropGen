@@ -63,6 +63,10 @@
    <dependency org="com.itextpdf" name="itextpdf" rev="5.0.6"/>
    <dependency org="org.eclipse.persistence" name="javax.persistence" rev="2.0.0"/>
 			<dependency org="org.eclipse.persistence" name="eclipselink" rev="2.5.0"/>
+			<dependency 
+   org="com.vaadin.addon" 
+   name="jpacontainer" 
+   rev="3.2.0" />
    
 	</dependencies>
 </ivy-module>
