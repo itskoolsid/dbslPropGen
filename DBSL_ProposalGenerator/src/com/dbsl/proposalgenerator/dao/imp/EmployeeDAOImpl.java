@@ -4,6 +4,8 @@ import java.util.List;
 
 import com.dbsl.proposalgenerator.beans.Employee;
 import com.dbsl.proposalgenerator.dao.EmployeeDAO;
+import com.vaadin.addon.jpacontainer.JPAContainer;
+import com.vaadin.addon.jpacontainer.JPAContainerFactory;
 
 public class EmployeeDAOImpl implements EmployeeDAO {
 	final String PERSISTENCE_UNIT = "dbsl";
