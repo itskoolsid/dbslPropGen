@@ -1,8 +1,6 @@
 package com.dbsl.proposalgenerator.gui.admin.listners;
 
-import com.dbsl.proposalgenerator.gui.admin.EmployeeForm;
-import com.vaadin.data.util.ObjectProperty;
-import com.vaadin.data.util.PropertysetItem;
+import com.dbsl.proposalgenerator.gui.admin.EmployeeWizard;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.UI;
@@ -31,10 +29,7 @@ public class EmployeeListenerImpl implements EmployeeListener, MenuBar.Command {
                     addWindow = null;
                 }
             });
-            PropertysetItem item = new PropertysetItem();
-            item.addItemProperty("name", new ObjectProperty<String>("Zaphod"));
-            item.addItemProperty("age", new ObjectProperty<Integer>(42));
-            addWindow.setContent(new EmployeeForm(item));
+            addWindow.setContent(new EmployeeWizard());
             addWindow.center();
             parent.addWindow(addWindow);
         }
