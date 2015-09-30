@@ -1,16 +1,18 @@
-package com.dbsl.proposalgenerator.gui.admin;
+package com.dbsl.proposalgenerator.dao.imp;
 
 import java.util.List;
 
 import com.dbsl.proposalgenerator.beans.Employee;
+import com.dbsl.proposalgenerator.dao.EmployeeDAO;
 
-public class EmployeeManagerImpl implements EmployeeManager {
+public class EmployeeDAOImpl implements EmployeeDAO {
 	final String PERSISTENCE_UNIT = "dbsl";
-	JPAContainer<Employee> itemscontainer = JPAContainerFactory.make(Employee.class,
-			PERSISTENCE_UNIT);
+	JPAContainer<Employee> itemscontainer = JPAContainerFactory.make(
+			Employee.class, PERSISTENCE_UNIT);
+
 	@Override
 	public void addEmployee(Employee employee) {
-		
+
 	}
 
 	@Override
@@ -20,7 +22,7 @@ public class EmployeeManagerImpl implements EmployeeManager {
 
 	@Override
 	public void deleteEmployeeByName(String empName) {
-		
+
 	}
 
 	@Override
@@ -32,6 +34,5 @@ public class EmployeeManagerImpl implements EmployeeManager {
 	public List<Employee> getAllEmployee() {
 		return null;
 	}
-
 
 }

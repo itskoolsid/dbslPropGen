@@ -1,9 +1,5 @@
 package com.dbsl.proposalgenerator;
 
-import java.util.List;
-
-import com.google.gwt.dom.client.ButtonElement;
-import com.google.gwt.dom.client.LabelElement;
 
 /**
  * This class contains JUnit tests, which are run using Vaadin TestBench 4.
