@@ -16,4 +16,5 @@ public interface EmployeeDAO {
     public Employee searchEmployeeByName(String empName);
 
     public List<Employee> getAllEmployee();
+
 }

@@ -2,6 +2,7 @@ package com.dbsl.proposalgenerator.dao.imp;
 
 import java.util.List;
 
+<<<<<<< HEAD
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
