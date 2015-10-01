@@ -25,4 +25,8 @@
 
 
     <inherits name="org.vaadin.sliderpanel.WidgetSet" />
+
+    <inherits name="org.vaadin.alump.fancylayouts.gwt.FancyLayoutsWidgetset" />
+
+    <inherits name="org.vaadin.easyuploads.Widgetset" />
 </module>

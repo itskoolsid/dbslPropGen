@@ -2,8 +2,8 @@ package com.dbsl.proposalgenerator.gui.admin.wizard.employee;
 
 import org.vaadin.teemu.wizards.WizardStep;
 
-import com.dbsl.proposalgenerator.beans.Employee;
-import com.vaadin.data.util.BeanItem;
+import com.vaadin.data.fieldgroup.FieldGroup;
+import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Component;
@@ -13,7 +13,13 @@ import com.vaadin.ui.VerticalLayout;
 
 public class AddEmpAddressStep implements WizardStep {
 
-    public AddEmpAddressStep(BeanItem<Employee> employeeItem) {
+    FieldGroup addressBinder;
+    EmployeeAddressForm form;
+
+    public AddEmpAddressStep(FieldGroup addressBinder) {
+        this.addressBinder = addressBinder;
+        form = new EmployeeAddressForm();
+        addressBinder.bindMemberFields(form);
     }
 
     @Override
@@ -26,27 +32,12 @@ public class AddEmpAddressStep implements WizardStep {
         VerticalLayout content = new VerticalLayout();
         content.setSizeFull();
         content.setMargin(true);
-
-        Label text = getText();
-        content.addComponent(text);
-
-        Embedded arrow = getArrow();
-        content.addComponent(arrow);
-
+        content.addComponent(form);
         return content;
     }
 
     private Label getText() {
-        return new Label(
-                "<h2>Listen for Progress</h2><p class=\"narrow\">The <code>WizardProgressListener</code> provides lifecycle methods to react "
-                        + "on the progress made by user.</p><p class=\"narrow\">By default the add-on displays a default <code>WizardProgressBar</code> (as seen above) for displaying the progress. You "
-                        + "can also use any other implementation of the interface for displaying the progress.</p>"
-                        + "<p>To register a new listener, use the <code>addListener</code> method of the <code>Wizard</code> class. For removal there is also <code>removeListener</code> method.</p>"
-                        + "<pre>WizardProgressListener myListener = new MyProgressListener();\nmyWizard.addListener(myListener);</pre>"
-                        + "<p>If you don't want to display the default progress bar, you can hide it by calling <code>setHeader(null)</code>. "
-                        + "The default progress bar component is also registered as a listener, so a good practice would be also to remove it (unless you want to display it in any other place on your application).</p>"
-                        + "<pre>Component defaultHeader = myWizard.getHeader();\nif (defaultHeader instanceof WizardProgressListener) {\n    myWizard.removeListener((WizardProgressListener) defaultHeader);\n}\nmyWizard.setHeader(null);</pre>",
-                ContentMode.HTML);
+        return new Label("<h2>Add Employee Address</h2>", ContentMode.HTML);
     }
 
     private Embedded getArrow() {
@@ -57,6 +48,11 @@ public class AddEmpAddressStep implements WizardStep {
 
     @Override
     public boolean onAdvance() {
+        try {
+            addressBinder.commit();
+        } catch (CommitException e) {
+            e.printStackTrace();
+        }
         return true;
     }
 

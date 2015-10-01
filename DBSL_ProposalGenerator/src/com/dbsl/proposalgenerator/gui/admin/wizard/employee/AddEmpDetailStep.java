@@ -2,9 +2,8 @@ package com.dbsl.proposalgenerator.gui.admin.wizard.employee;
 
 import org.vaadin.teemu.wizards.WizardStep;
 
-import com.dbsl.proposalgenerator.beans.Employee;
-import com.dbsl.proposalgenerator.gui.admin.EmployeeForm;
-import com.vaadin.data.util.BeanItem;
+import com.vaadin.data.fieldgroup.FieldGroup;
+import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
 import com.vaadin.server.ThemeResource;
 import com.vaadin.shared.ui.label.ContentMode;
 import com.vaadin.ui.Component;
@@ -14,10 +13,13 @@ import com.vaadin.ui.VerticalLayout;
 
 public class AddEmpDetailStep implements WizardStep {
 
-    BeanItem<Employee> empItem;
+    FieldGroup binder;
+    EmployeeDetailForm addForm;
 
-    public AddEmpDetailStep(BeanItem<Employee> empItem) {
-        this.empItem = empItem;
+    public AddEmpDetailStep(FieldGroup binder) {
+        this.binder = binder;
+        addForm = new EmployeeDetailForm();
+        binder.bindMemberFields(addForm);
     }
 
     @Override
@@ -32,11 +34,10 @@ public class AddEmpDetailStep implements WizardStep {
         content.setMargin(true);
 
         Label text = getText();
-        content.addComponent(text);
-        content.addComponent(new EmployeeForm(empItem));
+        content.addComponent(addForm);
 
         Embedded arrow = getArrow();
-        content.addComponent(arrow);
+        // content.addComponent(arrow);
 
         return content;
     }
@@ -53,6 +54,12 @@ public class AddEmpDetailStep implements WizardStep {
 
     @Override
     public boolean onAdvance() {
+        try {
+            binder.commit();
+        } catch (CommitException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
         return true;
     }
 

@@ -1,6 +1,7 @@
 package com.dbsl.proposalgenerator.gui.admin.listners;
 
 import com.dbsl.proposalgenerator.gui.admin.EmployeeWizard;
+import com.vaadin.shared.ui.window.WindowMode;
 import com.vaadin.ui.MenuBar;
 import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.UI;
@@ -22,6 +23,8 @@ public class EmployeeListenerImpl implements EmployeeListener, MenuBar.Command {
     public void addEmployee() {
         if (addWindow == null) {
             addWindow = new Window("Add Employee Details");
+            addWindow.setResponsive(true);
+            addWindow.setWindowMode(WindowMode.MAXIMIZED);
             addWindow.addCloseListener(new CloseListener() {
 
                 @Override

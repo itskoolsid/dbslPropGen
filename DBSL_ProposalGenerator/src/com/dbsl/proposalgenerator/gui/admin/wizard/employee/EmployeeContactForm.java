@@ -1,9 +1,5 @@
-package com.dbsl.proposalgenerator.gui.admin;
+package com.dbsl.proposalgenerator.gui.admin.wizard.employee;
 
-import com.dbsl.proposalgenerator.beans.Contact;
-import com.dbsl.proposalgenerator.beans.Employee;
-import com.vaadin.data.fieldgroup.FieldGroup;
-import com.vaadin.data.util.BeanItem;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.FormLayout;
 import com.vaadin.ui.TextField;
@@ -16,11 +12,9 @@ public class EmployeeContactForm extends CustomComponent {
     private final TextField officeNo2;
     private final TextField emailId;
     private final TextField faxNo;
-    BeanItem<Employee> employeeItem;
 
-    public EmployeeContactForm(BeanItem<Employee> employeeItem) {
+    public EmployeeContactForm() {
         super();
-        this.employeeItem = employeeItem;
         mobNo = new TextField("Mobile No.");
         homeNo = new TextField("Landline No.");
         officeNo1 = new TextField("Office Tel#1");
@@ -35,17 +29,14 @@ public class EmployeeContactForm extends CustomComponent {
         layout.addComponent(officeNo2);
         layout.addComponent(emailId);
         layout.addComponent(faxNo);
-        // Now use a binder to bind the members
-        /*
-         * employeeItem .addItemProperty("discoverername", new NestedMethodProperty<Contact>(employeeItem.getBean(),
-         * "contact.mobNo"));
-         */
+        mobNo.setNullRepresentation("");
+        homeNo.setNullRepresentation("");
+        officeNo1.setNullRepresentation("");
+        officeNo2.setNullRepresentation("");
+        emailId.setNullRepresentation("");
+        faxNo.setNullRepresentation("");
 
-        BeanItem<Contact> cont = new BeanItem<Contact>(employeeItem.getBean().getContact());
-        FieldGroup binder = new FieldGroup(cont);
-        binder.bindMemberFields(this);
-        binder.setBuffered(true);
-
+        mobNo.setImmediate(true);
         setCompositionRoot(layout);
     }
 

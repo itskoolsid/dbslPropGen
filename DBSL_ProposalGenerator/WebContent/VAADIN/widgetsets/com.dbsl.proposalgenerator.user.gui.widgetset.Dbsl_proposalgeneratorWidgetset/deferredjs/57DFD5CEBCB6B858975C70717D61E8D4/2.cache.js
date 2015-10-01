@@ -1,0 +1,1 @@
+$wnd.com_dbsl_proposalgenerator_user_gui_widgetset_Dbsl_proposalgeneratorWidgetset.runAsyncCallback2('feb(1609,1,b2d);_.tc=function xfc(){d0b((!Y_b&&(Y_b=new i0b),Y_b),this.a.d)};AXd(_h)(2);\n//# sourceURL=com.dbsl.proposalgenerator.user.gui.widgetset.Dbsl_proposalgeneratorWidgetset-2.js\n')

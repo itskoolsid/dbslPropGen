@@ -72,5 +72,10 @@
    org="org.vaadin.addons" 
    name="wizards-for-vaadin" 
    rev="1.1.0" />
+   
+   <dependency 
+   org="org.vaadin.alump.fancylayouts" 
+   name="fancylayouts-addon" 
+   rev="1.0.1" />
 	</dependencies>
 </ivy-module>
