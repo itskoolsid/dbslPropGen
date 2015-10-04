@@ -1,6 +1,6 @@
 package com.dbsl.proposalgenerator.beans;
 
-// Generated Sep 25, 2015 9:10:21 AM by Hibernate Tools 3.4.0.CR1
+// Generated Oct 2, 2015 12:51:43 PM by Hibernate Tools 3.4.0.CR1
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -17,7 +17,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -30,114 +29,116 @@ import javax.persistence.TemporalType;
 @Table(name = "solution", catalog = "dbsl_proposal_generator")
 public class Solution implements java.io.Serializable {
 
-    private Integer id;
-    private String name;
-    private String motto;
-    private String logoPath;
-    private Date createdOn;
-    private Boolean isAcitve;
-    private ExecutiveSummary executiveSummary;
-    private Set<Category> categories = new HashSet<Category>(0);
-    private Set<Proposal> proposals = new HashSet<Proposal>(0);
+	private Integer id;
+	private String name;
+	private String motto;
+	private String logoPath;
+	private Date createdOn;
+	private Boolean isAcitve;
+	private Set<Category> categories = new HashSet<Category>(0);
+	private Set<Proposal> proposals = new HashSet<Proposal>(0);
+	private Set<ExecutiveSummery> executiveSummeries = new HashSet<ExecutiveSummery>(
+			0);
 
-    public Solution() {
-    }
+	public Solution() {
+	}
 
-    public Solution(String name, String motto, String logoPath, Date createdOn, Boolean isAcitve, Set<Category> categories,
-            Set<Proposal> proposals) {
-        this.name = name;
-        this.motto = motto;
-        this.logoPath = logoPath;
-        this.createdOn = createdOn;
-        this.isAcitve = isAcitve;
-        this.categories = categories;
-        this.proposals = proposals;
-    }
+	public Solution(String name, String motto, String logoPath, Date createdOn,
+			Boolean isAcitve, Set<Category> categories,
+			Set<Proposal> proposals, Set<ExecutiveSummery> executiveSummeries) {
+		this.name = name;
+		this.motto = motto;
+		this.logoPath = logoPath;
+		this.createdOn = createdOn;
+		this.isAcitve = isAcitve;
+		this.categories = categories;
+		this.proposals = proposals;
+		this.executiveSummeries = executiveSummeries;
+	}
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
-    public Integer getId() {
-        return this.id;
-    }
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "id", unique = true, nullable = false)
+	public Integer getId() {
+		return this.id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    @Column(name = "name", length = 45)
-    public String getName() {
-        return this.name;
-    }
+	@Column(name = "name", length = 45)
+	public String getName() {
+		return this.name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    @Column(name = "motto")
-    public String getMotto() {
-        return this.motto;
-    }
+	@Column(name = "motto")
+	public String getMotto() {
+		return this.motto;
+	}
 
-    public void setMotto(String motto) {
-        this.motto = motto;
-    }
+	public void setMotto(String motto) {
+		this.motto = motto;
+	}
 
-    @Column(name = "logoPath")
-    public String getLogoPath() {
-        return this.logoPath;
-    }
+	@Column(name = "logoPath")
+	public String getLogoPath() {
+		return this.logoPath;
+	}
 
-    public void setLogoPath(String logoPath) {
-        this.logoPath = logoPath;
-    }
+	public void setLogoPath(String logoPath) {
+		this.logoPath = logoPath;
+	}
 
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "createdOn", length = 19)
-    public Date getCreatedOn() {
-        return this.createdOn;
-    }
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name = "createdOn", length = 19)
+	public Date getCreatedOn() {
+		return this.createdOn;
+	}
 
-    public void setCreatedOn(Date createdOn) {
-        this.createdOn = createdOn;
-    }
+	public void setCreatedOn(Date createdOn) {
+		this.createdOn = createdOn;
+	}
 
-    @Column(name = "isAcitve")
-    public Boolean getIsAcitve() {
-        return this.isAcitve;
-    }
+	@Column(name = "isAcitve")
+	public Boolean getIsAcitve() {
+		return this.isAcitve;
+	}
 
-    public void setIsAcitve(Boolean isAcitve) {
-        this.isAcitve = isAcitve;
-    }
+	public void setIsAcitve(Boolean isAcitve) {
+		this.isAcitve = isAcitve;
+	}
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "solution")
-    public Set<Category> getCategories() {
-        return this.categories;
-    }
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "solution")
+	public Set<Category> getCategories() {
+		return this.categories;
+	}
 
-    public void setCategories(Set<Category> categories) {
-        this.categories = categories;
-    }
+	public void setCategories(Set<Category> categories) {
+		this.categories = categories;
+	}
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "proposal_has_solution", catalog = "dbsl_proposal_generator", joinColumns = { @JoinColumn(name = "SOLUTION_id", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "PROPOSAL_id", nullable = false, updatable = false) })
-    public Set<Proposal> getProposals() {
-        return this.proposals;
-    }
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "proposal_has_solution", catalog = "dbsl_proposal_generator", joinColumns = { @JoinColumn(name = "SOLUTION_id", nullable = false, updatable = false) }, inverseJoinColumns = { @JoinColumn(name = "PROPOSAL_id", nullable = false, updatable = false) })
+	public Set<Proposal> getProposals() {
+		return this.proposals;
+	}
 
-    public void setProposals(Set<Proposal> proposals) {
-        this.proposals = proposals;
-    }
+	public void setProposals(Set<Proposal> proposals) {
+		this.proposals = proposals;
+	}
 
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "EXECUTIVE_SUMMARY_id", nullable = false)
-    public ExecutiveSummary getExecutiveSummary() {
-        return executiveSummary;
-    }
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "solution")
+	public Set<ExecutiveSummery> getExecutiveSummeries() {
+		return this.executiveSummeries;
+	}
 
-    public void setExecutiveSummary(ExecutiveSummary executiveSummary) {
-        this.executiveSummary = executiveSummary;
-    }
+	public void setExecutiveSummeries(Set<ExecutiveSummery> executiveSummeries) {
+		this.executiveSummeries = executiveSummeries;
+	}
 
 }

@@ -77,5 +77,8 @@
    org="org.vaadin.alump.fancylayouts" 
    name="fancylayouts-addon" 
    rev="1.0.1" />
+   
+   <dependency org="mysql" name="mysql-connector-java" rev="5.1.36"/>
+   
 	</dependencies>
 </ivy-module>
