@@ -1,8 +1,11 @@
-package com.dbsl.proposalgenerator.gui.admin.wizard.solution;
+package com.dbsl.proposalgenerator.gui.admin.wizard.solution.step;
+
+import java.io.IOException;
 
 import org.vaadin.teemu.wizards.WizardStep;
 
-import com.dbsl.proposalgenerator.gui.admin.wizard.employee.EmployeeAddressForm;
+import com.dbsl.proposalgenerator.beans.StaticText;
+import com.dbsl.proposalgenerator.gui.admin.wizard.solution.form.SubCatagoryAddForm;
 import com.vaadin.data.fieldgroup.FieldGroup;
 import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
 import com.vaadin.server.ThemeResource;
@@ -13,18 +16,18 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.VerticalLayout;
 
 public class AddSubCatagoryStep implements WizardStep {
-	FieldGroup addressBinder;
-	EmployeeAddressForm form;
+	FieldGroup categoryBinder;
+	SubCatagoryAddForm form;
 
-	public AddSubCatagoryStep(FieldGroup addressBinder) {
-		this.addressBinder = addressBinder;
-		form = new EmployeeAddressForm();
-		addressBinder.bindMemberFields(form);
+	public AddSubCatagoryStep(FieldGroup categoryBinder) {
+		this.categoryBinder = categoryBinder;
+		form = new SubCatagoryAddForm();
+		categoryBinder.bindMemberFields(form);
 	}
 
 	@Override
 	public String getCaption() {
-		return "Add Executive Summery";
+		return "Add Category";
 	}
 
 	@Override
@@ -49,7 +52,8 @@ public class AddSubCatagoryStep implements WizardStep {
 	@Override
 	public boolean onAdvance() {
 		try {
-			addressBinder.commit();
+			categoryBinder.commit();
+
 		} catch (CommitException e) {
 			e.printStackTrace();
 		}
@@ -59,5 +63,9 @@ public class AddSubCatagoryStep implements WizardStep {
 	@Override
 	public boolean onBack() {
 		return true;
+	}
+
+	public StaticText getStaticText() throws IOException {
+		return form.getStaticText();
 	}
 }

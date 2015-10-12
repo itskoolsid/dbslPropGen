@@ -1,7 +1,8 @@
-package com.dbsl.proposalgenerator.gui.admin.wizard.solution;
+package com.dbsl.proposalgenerator.gui.admin.wizard.solution.step;
 
 import org.vaadin.teemu.wizards.WizardStep;
 
+import com.dbsl.proposalgenerator.gui.admin.wizard.solution.form.SolutionAddForm;
 import com.vaadin.data.fieldgroup.FieldGroup;
 import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
 import com.vaadin.ui.Component;
@@ -15,6 +16,7 @@ public class AddSolutionStep implements WizardStep {
 	public AddSolutionStep(FieldGroup solFieldGroup) {
 		super();
 		this.solutionBinder = solFieldGroup;
+		form = new SolutionAddForm();
 	}
 
 	@Override
@@ -34,6 +36,7 @@ public class AddSolutionStep implements WizardStep {
 	@Override
 	public boolean onAdvance() {
 		try {
+
 			solutionBinder.commit();
 		} catch (CommitException e) {
 			e.printStackTrace();

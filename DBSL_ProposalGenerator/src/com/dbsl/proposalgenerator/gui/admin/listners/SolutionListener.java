@@ -1,6 +1,8 @@
 package com.dbsl.proposalgenerator.gui.admin.listners;
 
-public interface SolutionListener {
+import com.vaadin.ui.MenuBar;
+
+public interface SolutionListener extends MenuBar.Command {
 	public void addSolution();
 
 	public void editSolution();

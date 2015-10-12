@@ -1,11 +1,12 @@
-package com.dbsl.proposalgenerator.gui.admin.wizard.solution;
+package com.dbsl.proposalgenerator.gui.admin.wizard.solution.form;
 
+import java.io.IOException;
 import java.util.Date;
 
+import com.dbsl.proposalgenerator.beans.StaticText;
 import com.vaadin.ui.CustomComponent;
 import com.vaadin.ui.DateField;
 import com.vaadin.ui.FormLayout;
-import com.vaadin.ui.RichTextArea;
 import com.vaadin.ui.TextField;
 
 @SuppressWarnings("serial")
@@ -14,7 +15,7 @@ public class SubCatagoryAddForm extends CustomComponent {
 	private TextField name;
 	private DateField createdOn;
 	private TextField oneOffCost;
-	private RichTextArea content;
+	private StaticTextForm staticForm;
 
 	public SubCatagoryAddForm() {
 		super();
@@ -22,7 +23,7 @@ public class SubCatagoryAddForm extends CustomComponent {
 		name = new TextField("Name");
 		createdOn = new DateField("Created On", new Date());
 		oneOffCost = new TextField("One Off Cost");
-		content = new RichTextArea("Contents");
+		staticForm = new StaticTextForm();
 
 		title.setNullRepresentation("");
 		name.setNullRepresentation("");
@@ -30,13 +31,18 @@ public class SubCatagoryAddForm extends CustomComponent {
 		oneOffCost.setNullRepresentation("");
 
 		FormLayout form = new FormLayout(title, name, oneOffCost, createdOn,
-				content);
+				staticForm);
 		setCompositionRoot(form);
 
 	}
 
-	public String getContents() {
-		return content.getValue();
+	public StaticText getStaticText() throws IOException {
+		/*
+		 * BeanItem<StaticText> text = new BeanItem<StaticText>(new
+		 * StaticText()); FieldGroup binder = new FieldGroup(text);
+		 * binder.bindMemberFields(staticForm); return text.getBean();
+		 */
+		return staticForm.getStaticText();
 	}
 
 }

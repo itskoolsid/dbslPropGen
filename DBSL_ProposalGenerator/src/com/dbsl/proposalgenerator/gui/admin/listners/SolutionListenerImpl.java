@@ -1,7 +1,8 @@
 package com.dbsl.proposalgenerator.gui.admin.listners;
 
-import com.dbsl.proposalgenerator.gui.admin.EmployeeWizard;
+import com.dbsl.proposalgenerator.gui.admin.SolutionWizard;
 import com.vaadin.shared.ui.window.WindowMode;
+import com.vaadin.ui.MenuBar.MenuItem;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.Window;
 import com.vaadin.ui.Window.CloseEvent;
@@ -20,7 +21,7 @@ public class SolutionListenerImpl implements SolutionListener {
 	@Override
 	public void addSolution() {
 		if (addWindow == null) {
-			addWindow = new Window("Add Employee Details");
+			addWindow = new Window("Create Solution Template");
 			addWindow.setResponsive(true);
 			addWindow.setWindowMode(WindowMode.MAXIMIZED);
 			addWindow.addCloseListener(new CloseListener() {
@@ -30,7 +31,7 @@ public class SolutionListenerImpl implements SolutionListener {
 					addWindow = null;
 				}
 			});
-			addWindow.setContent(new EmployeeWizard());
+			addWindow.setContent(new SolutionWizard());
 			addWindow.center();
 			parent.addWindow(addWindow);
 		}
@@ -49,6 +50,27 @@ public class SolutionListenerImpl implements SolutionListener {
 	@Override
 	public void searchSolution() {
 
+	}
+
+	@Override
+	public void menuSelected(MenuItem selectedItem) {
+		switch (selectedItem.getText()) {
+		case "Create New":
+			addSolution();
+			break;
+		case "Edit":
+			editSolution();
+			break;
+		case "Delete":
+			deleteSolution();
+			break;
+		case "Search":
+			searchSolution();
+			break;
+
+		default:
+			break;
+		}
 	}
 
 }

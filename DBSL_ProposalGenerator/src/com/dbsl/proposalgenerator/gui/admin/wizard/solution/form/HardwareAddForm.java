@@ -1,4 +1,4 @@
-package com.dbsl.proposalgenerator.gui.admin.wizard.solution;
+package com.dbsl.proposalgenerator.gui.admin.wizard.solution.form;
 
 import org.vaadin.teemu.VaadinIcons;
 
